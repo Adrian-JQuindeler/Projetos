@@ -23,12 +23,12 @@ public class Knight extends ChessPiece{
 		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
 		Position p = new Position(0, 0);
 		
-		//Acima-Direita
+		//Nordeste
 		p.setValues(position.getRow()-2, position.getColumn()+1);
 		if(getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
-		//Acima-Esquerda
+		//Noroeste
 		p.setValues(position.getRow()-2, position.getColumn()-1);
 		if(getBoard().positionExists(p) && canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
