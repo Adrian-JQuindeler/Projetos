@@ -5,59 +5,63 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-public class Bishop extends ChessPiece{
+public class Bishop extends ChessPiece {
 
 	public Bishop(Board board, Color color) {
 		super(board, color);
 	}
+
 	@Override
 	public String toString() {
 		return "X";
 	}
+	
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+		
 		Position p = new Position(0, 0);
 		
-		//nordeste
-		p.setValues(position.getRow()-1, position.getColumn()+1);
-		while(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
+		// Noroeste
+		p.setValues(position.getRow() - 1, position.getColumn() - 1);
+		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
-			p.setValues(position.getRow()-1, position.getColumn()+1);
+			p.setValues(p.getRow() - 1, p.getColumn() - 1);
 		}
-		if(getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-		}
-		
-		//Noroeste
-		p.setValues(position.getRow()-1, position.getColumn()-1);
-		while(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-			p.setValues(position.getRow()-1, position.getColumn()-1);
-		}
-		if(getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
+		if (getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 		
-		//Suldete
-		p.setValues(position.getRow()+1, position.getColumn()+1);
-		while(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
+		// Nordeste
+		p.setValues(position.getRow() - 1, position.getColumn() + 1);
+		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
-			p.setValues(position.getRow()+1, position.getColumn()+1);
+			p.setValues(p.getRow() - 1, p.getColumn() + 1);
 		}
-		if(getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
+		if (getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 		
-		//Sudoeste
-		p.setValues(position.getRow()+1, position.getColumn()-1);
-		while(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
+		// Sudeste
+		p.setValues(position.getRow() + 1, position.getColumn() + 1);
+		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
-			p.setValues(position.getRow()+1, position.getColumn()-1);
+			p.setValues(p.getRow() + 1, p.getColumn() + 1);
 		}
-		if(getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
+		if (getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
+		
+		// Sudoeste
+		p.setValues(position.getRow() + 1, position.getColumn() - 1);
+		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
+			mat[p.getRow()][p.getColumn()] = true;
+			p.setValues(p.getRow() + 1, p.getColumn() - 1);
+		}
+		if (getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
+			mat[p.getRow()][p.getColumn()] = true;
+		}
+		
 		return mat;
 	}
 }
