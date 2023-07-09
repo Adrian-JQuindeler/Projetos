@@ -15,13 +15,13 @@ public class Bishop extends ChessPiece {
 	public String toString() {
 		return "X";
 	}
-	
+
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
-		
+
 		Position p = new Position(0, 0);
-		
+
 		// Noroeste
 		p.setValues(position.getRow() - 1, position.getColumn() - 1);
 		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
@@ -31,7 +31,7 @@ public class Bishop extends ChessPiece {
 		if (getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
-		
+
 		// Nordeste
 		p.setValues(position.getRow() - 1, position.getColumn() + 1);
 		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
@@ -41,7 +41,7 @@ public class Bishop extends ChessPiece {
 		if (getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
-		
+
 		// Sudeste
 		p.setValues(position.getRow() + 1, position.getColumn() + 1);
 		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
@@ -51,7 +51,7 @@ public class Bishop extends ChessPiece {
 		if (getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
-		
+
 		// Sudoeste
 		p.setValues(position.getRow() + 1, position.getColumn() - 1);
 		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
@@ -61,7 +61,7 @@ public class Bishop extends ChessPiece {
 		if (getBoard().positionExists(p) && isThereAEnemyPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
-		
+
 		return mat;
 	}
 }
