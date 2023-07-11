@@ -36,6 +36,15 @@ public class Program {
 				if (capturedPiece != null) {
 					captured.add(capturedPiece);
 				}
+				if(chessMatch.getPromoted() != null) {
+					System.out.println("Digite a peça que deseja.\n[B]Bispo\n[C]Cavalo\n[T]Torre\n[R]Raínha");
+					String type = sc.nextLine().toUpperCase();
+					while(!type.equals("B") && !type.equals("C") && !type.equals("T") && !type.equals("R")) {
+						System.out.println("Valor desconhecido. Digite a peça que deseja.\\n[B]Bispo\\n[C]Cavalo\\n[T]Torre\\n[R]Raínha");
+						type = sc.nextLine().toUpperCase();
+						}
+					chessMatch.replacePromotedPiece(type);
+				}
 			} catch (ChessException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
